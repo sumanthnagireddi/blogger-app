@@ -1,0 +1,87 @@
+<div class="create_container">
+    <div class="create_header">
+        <span class="material-symbols-outlined">west</span>
+        <div>
+            <p class="create_header_value"> {{isBasicDetailsFilled ? articleForm.value?.title:'Create Post'}}</p>
+            <p class="create_header_desc"> {{ getDescription()?.substring(0,85)}}</p>
+        </div>
+    </div>
+    <div class="buttons_container">
+        <a class="normal-button" (click)="handlePublishArticle('drafted')">Save Draft</a>
+        <a class="schedule-button" (click)="handlePublishArticle('scheduled')" *ngIf="isBasicDetailsFilled">Schedule</a>
+        <a (click)="handlePublishArticle('published')" *ngIf="isBasicDetailsFilled" class="colored-button">Publish
+            Blog</a>
+    </div>
+</div>
+
+<div *ngIf="isScheduleClicked" style="display: flex;justify-content: end;" >
+   <div>
+    <span >Choose date</span>
+    <div style="border:1px ;border-color: gray;">
+        <input [(ngModel)]="scheduleTime" type="datetime-local">
+    </div>
+   </div>
+</div>
+<div [formGroup]="articleForm" *ngIf="!isBasicDetailsFilled" class="form_container">
+    <div class="input_container">
+        <label for="articleTitle" class="">Article title</label>
+        <input [ngClass]="{'error':isControlInvalid('title')}" formControlName="title" type="text" id="articleTitle"
+            placeholder="Enter your article title" />
+        <small class="danger" *ngIf="isControlInvalid('title')">Please enter your article title</small>
+    </div>
+    <div class="input_container">
+        <label for="articleDesc">ArticleDescription</label>
+        <input formControlName="description" type="text" id="articleDesc" placeholder="Enter your article Description"
+            [ngClass]="{'error':isControlInvalid('description')}" />
+        <small class="danger" *ngIf="isControlInvalid('description')">Please enter your article description</small>
+    </div>
+    <div class="input_container">
+        <label for="articleTags">ArticleTags</label>
+        <small class="info">please enter your tags, with comma seperated values.</small>
+        <input formControlName="tags" type="text" id="articleTags" [ngClass]="{'error':isControlInvalid('tags')}"
+            placeholder="Enter your article tags with comma seperated values." />
+        <small class="danger" *ngIf="isControlInvalid('tags')">Please enter your articletags</small>
+    </div>
+    <div class="input_container">
+        <label for="articleTags">Article Cover photo</label>
+        <small class="info">please upload high quality image.</small>
+        <div *ngIf="!uploadedImage" class="image_container">
+            <label for="dropzone-file" [ngClass]="{'error':isControlInvalid('articlePhoto')}" class="image_upload">
+                <div class="content">
+                    <span class="icon material-symbols-outlined">
+                        cloud_upload
+                    </span>
+                    <p class="click_to_upload"><span class="font-semibold">Click to
+                            upload</span></p>
+                    <p class="hint">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                </div>
+                <input (change)="uploadImages($event)" id="dropzone-file" type="file" style="display:none;" />
+            </label>
+        </div>
+        <div *ngIf="uploadedImage" class="image_delete card">
+            {{uploadedImage.name}}
+            <span (click)="deleteImage()" class="material-symbols-outlined">
+                delete
+            </span>
+        </div>
+        <small class="danger" *ngIf="isControlInvalid('articlePhoto')">Please upload your article photo</small>
+
+    </div>
+    <!-- <div class="input_container">
+        <label for="articleTitle" class="">Choose Schedule for publishing if required</label>
+        <input formControlName="scheduleTime" type="datetime-local" id="articleTitle"
+             />
+    </div> -->
+</div>
+<div class="quill_container" *ngIf="isBasicDetailsFilled">
+    <quill-editor (onContentChanged)="handleContent($event)"></quill-editor>
+</div>
+
+<div class="bottom_butons">
+    <a (click)="isBasicDetailsFilled ? isBasicDetailsFilled=false:router.navigate(['/'])" class="normal-button">
+        Cancel
+    </a>
+    <a *ngIf="!isBasicDetailsFilled" (click)="handleNext()" class="schedule-button">
+        Next
+    </a>
+</div>

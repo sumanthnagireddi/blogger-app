@@ -1,0 +1,14 @@
+<div class="comments_container">
+    <app-comments-form (exportComment)="getComment($event)" />
+    <div class="filter">
+        <select (change)="filter()" [(ngModel)]="sortCriteria" id="Tab"
+            >
+            <option selected value="most_recent">Most Recent</option>
+            <option value="most_replied">Most Replied</option>
+            <option value="oldest">oldest</option>
+        </select>
+    </div>
+    <div *ngFor="let item of comments">
+        <app-comments-holder (exportCommentdata)="getComment($event)"  [comment]="item" />
+    </div>
+</div>

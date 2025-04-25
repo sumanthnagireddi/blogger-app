@@ -1,0 +1,42 @@
+<!-- <article class="container card">
+    <img alt="" [src]="'https://flowbite.com/docs/images/blog/image-4.jpg'" class="image card" />
+    <div style="padding: 0 1rem;">
+        <a>
+            <h3 class="title">
+                {{'suamnth'}}
+            </h3>
+        </a>
+
+        <p class="description">
+            user of online publishing platform since {{data()?.joinedOn | date}}
+        </p>
+    </div>
+    <div class="bottom-content">
+        <button [routerLink]="['author-details', data()?.userUid]" class="visit-button colored-button">
+            Visit
+            <span class="icon material-symbols-outlined">
+                open_in_new
+            </span>
+        </button>
+    </div>
+</article> -->
+<article class="reader_card card">
+    <img alt=""
+        [src]="(data()?.photoUrl)?(data()?.photoUrl):'data:image/jpeg;base64,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'" />
+    <div class="description_container">
+        <h3 class="head">
+            {{data()?.username}}
+        </h3>
+        <span class="description">
+            user of online publishing platform since {{data()?.joinedOn | date}}
+        </span>
+    </div>
+    <div class="bottom-content">
+        <button [routerLink]="['author-details', data()?.userUid]" class="visit-button colored-button">
+            Visit
+            <span class="icon material-symbols-outlined">
+                open_in_new
+            </span>
+        </button>
+    </div>
+</article>

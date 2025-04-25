@@ -1,0 +1,11 @@
+<article (click)="navigate(data()?._id)" class="reader_card card">
+    <img alt="" [src]="data()?.articlePhoto" />
+    <div class="description_container">
+        <h3 class="head">
+            {{data()?.title?.substring(0,19)}}
+        </h3>
+        <span [title]="data()?.description" class="description">
+            {{data()?.description?.substring(0,110)}}
+        </span>
+    </div>
+</article>

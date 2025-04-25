@@ -1,0 +1,46 @@
+<div (click)="handleClick()"  class="container">
+    <div class="sidebar">
+        <div class="colored-button" [routerLink]="['article','create','new']"> Publish Blog
+        </div>
+        <div class="sidemenu">
+            <div routerLink="/" routerLinkActive="colored-button" [routerLinkActiveOptions]="{exact:true}"
+                class="sidebar_menu">
+                Home
+            </div>
+            <div [routerLink]="['me','blogs','published']" [routerLinkActive]="'colored-button'" class="sidebar_menu">
+                Published Blogs
+            </div>
+            <div class="sidebar_menu" [routerLink]="['me','blogs','drafts']" [routerLinkActive]="'colored-button'">
+                Drafts
+            </div>
+            <div class="sidebar_menu" [routerLink]="['me','blogs','scheduled']" [routerLinkActive]="'colored-button'">
+                Scheduled Blogs
+            </div>
+            <div class="sidebar_menu" [routerLink]="['discover']" [routerLinkActive]="'colored-button'">
+                Discover
+            </div>
+            <div class="sidebar_menu" [routerLink]="['me','blogs','saved']" [routerLinkActive]="'colored-button'">
+                Saved
+            </div>
+            <div class="sidebar_menu" [routerLink]="['me','account']" [routerLinkActive]="'colored-button'">
+                Account
+            </div>
+            <div class="sidebar_menu" (click)="logout()">
+                Logout
+            </div>
+        </div>
+
+        <div style="display: flex;align-items: center;gap: 0.25rem;">
+
+            <div class="avatar_container">
+                <span class="letters">{{this.current_userData?.username.substring(0,2) | uppercase}}</span>
+            </div>
+            <div>
+                <span style="font-weight: 500;font-size: 1rem;
+                line-height: 1.25rem;color: rgb(75 85 99);">{{this.current_userData?.username}}</span><br>
+                <!-- <span style="width: 80%; overflow: hidden;">{{this.current_userData?.email}}</span> -->
+            </div>
+        </div>
+
+    </div>
+</div>

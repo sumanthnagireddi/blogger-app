@@ -1,0 +1,113 @@
+.container {
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    .head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        .discover {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 700;
+        }
+    }
+    .sub_header {
+        text-align: center;
+        // padding-top: 0.25rem;
+        // padding-bottom: 0.25rem;
+        display: flex;
+        justify-content: center;
+        color: rgb(75 85 99);
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: rgb(55 65 81);
+    }
+    .search_holder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 2rem;
+        @media screen and (max-width:650px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .keywords_container {
+        text-align: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        
+        .trend {
+            font-weight: 500;
+            color: rgb(55 65 81);
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+
+            .keyword {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 0.125rem;
+                padding-bottom: 0.125rem;
+                background-color: rgb(229 231 235);
+                color: rgb(75 85 99);
+                border-radius: 0.75rem;
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+    .readers {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        position: relative;
+    }
+    .heading {
+        font-weight: 500;
+        color: rgb(55 65 81);
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .previousbtn {
+        position: absolute;
+        z-index: 10;
+        left: -1.5rem;
+        top: 50%;
+    }
+    .lefticon {
+        border-style: none;
+        cursor: pointer;
+        border-radius: 9999px;
+        background-color: rgb(209 250 229);
+        color: rgb(5 150 105);
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0.25rem;
+
+        &:hover {
+            background-color: rgb(167 243 208);
+        }
+    }
+    .carousel_container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        @media screen and (max-width:650px) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+    .nextbtn {
+        // absolute -right-7 z-10 top-1/2
+        position: absolute;
+        right: -1.75rem;
+        z-index: 10;
+        top: 50%;
+    }
+}

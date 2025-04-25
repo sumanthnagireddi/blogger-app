@@ -1,0 +1,21 @@
+<div class="toast_container">
+
+
+    <div *ngIf="toast" id="toast-success" [ngClass]="toast.type=='success'?'success_toast':'error_toast'" class="toast"
+        role="alert">
+        <div *ngIf="toast.type=='success'" class="success_icon">
+            <span class="material-symbols-outlined">
+                verified
+                </span>
+        </div>
+        <div *ngIf="toast.type=='error'" class="error_icon">
+            <span class="material-symbols-outlined">
+                error
+            </span>
+        </div>
+        <div class="message">{{toast?.message}}.</div>
+
+    </div>
+
+
+</div>

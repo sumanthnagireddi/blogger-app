@@ -1,0 +1,59 @@
+.toast_container {
+    position: fixed;
+    z-index: 9999;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    top: 1.25rem;
+    right: 1.25rem;
+}
+.success_toast {
+    background-color: rgb(110 231 183);
+   color: rgb(5 150 105);
+}
+.error_toast {
+    background-color: rgb(254 202 202);
+    color: rgb(220 38 38);
+}
+.toast {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    max-width: 20rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.success_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(22 163 74);
+    background-color: rgb(220 252 231);
+    border-radius: 0.5rem;
+}
+
+.error_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(220 38 38);
+    background-color: rgb(254 202 202);
+    border-radius: 0.5rem;
+}
+
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.message {
+    margin-inline-start: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+}

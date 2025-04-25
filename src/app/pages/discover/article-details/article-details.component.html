@@ -1,0 +1,62 @@
+<div class="details_container" *ngIf="currentData">
+    <div class="details_head">
+        <h3 class="details_header">{{currentData?.title}} </h3>
+        <p class="details_desc">{{currentData?.description}}</p>
+    </div>
+    <div class="author_details">
+        <div class="profile_icon">
+            <span class="material-symbols-outlined">account_circle</span>
+        </div>
+        <div>
+            <p class="author_name">{{currentData?.author}} <span *ngIf="currentData?.authorId != loggedUser$?.userUid"
+                    class="follow" (click)="followUser()">{{this.isFollowing ? 'Unfollow':'Follow'}}</span></p>
+            <p class="sub_content">{{currentData?.readTime}} min read <span>Published on {{currentData?.published
+                    |date:'mediumDate'}}</span></p>
+        </div>
+
+    </div>
+    <div class="stats_container">
+        <div class="left-content">
+            <div class="icon-container">
+                <span class="material-symbols-outlined icon">visibility</span>
+                <span class="iconvalue">{{views()}}</span>
+            </div>
+            <div class="icon-container" style="cursor: pointer;" (click)="openComments()">
+                <span class="material-symbols-outlined icon">mode_comment</span>
+                <span class="iconvalue">{{currentData?.comments ?currentData?.comments?.length:0}}</span>
+            </div>
+
+        </div>
+        <div class="right-content">
+            <div class="icon-container" style="cursor: pointer;">
+                <span class="material-symbols-outlined icon">bookmark</span>
+                <span class=" iconvalue">1.8K</span>
+            </div>
+
+        </div>
+    </div>
+    <div class="ql-snow">
+        <div class="ql-editor" [innerHtml]="editorContent"></div>
+    </div>
+    <div class="keys_list">
+        <div class="keyword" [routerLink]="['/discover','tags',tag]" routerLinkActive="router-link-active"  *ngFor="let tag of currentData?.tags">#{{tag}}</div>
+    </div>
+    <div class="recommended">
+        <h3 class="rec_header">Recommended for you</h3>
+
+        <div class="readers_container">
+            <div *ngFor="let card of readersChoices">
+                <app-reader-card [data]="card"></app-reader-card>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="sidebarVisible2">
+        <p-sidebar [(visible)]="sidebarVisible2" [style]="{width:'37%'}" position="right">
+            <ng-template pTemplate="header">
+                <span class="comments">Comments({{(currentData?.comments)?(currentData?.comments?.length):0}})</span>
+            </ng-template>
+            <app-comments (commentsUpdated)="getData(this.articleName())" [currentArticle]="currentData" />
+        </p-sidebar>
+    </div>
+</div>

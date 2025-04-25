@@ -1,0 +1,34 @@
+<div [ngStyle]="{'width': width()+'px'}" class="main">
+    <div class="search">
+        <div (click)="showDropdown=!showDropdown" class="dropdownbtn" type="button">{{currentValue}} <span
+                class="material-symbols-outlined down_arrow">
+                chevron_right
+            </span></div>
+        <div *ngIf="showDropdown" class="card menu_container">
+            <div class="menu_list" aria-labelledby="dropdown-button">
+                <span *ngFor="let val of dropdownMenu" (click)="setCurrentSelector(val)" class="value">{{val}}
+                </span>
+            </div>
+        </div>
+        <div class="search_container">
+            <input type="search" id="search-dropdown" (input)="keyInput($event)" [(ngModel)]="searchValue"
+                placeholder="Search Articles,Authors,Tags..." required />
+            <div type="submit" class="search_icon">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showCOntent" class="results  card">
+        <div *ngIf="filteredItems&& filteredItems.length>0" class="menu_list" aria-labelledby="dropdownDefaultButton">
+            <span (click)="navigate(item)" *ngFor="let item of filteredItems" class="value">{{currentValue== 'Articles'?item.title:currentValue
+                == 'Authors'?item.username:item}}
+            </span>
+
+        </div>
+        <div *ngIf="filteredItems.length == 0">
+            <a class="nodata">No Data Found</a>
+        </div>
+    </div>
+</div>

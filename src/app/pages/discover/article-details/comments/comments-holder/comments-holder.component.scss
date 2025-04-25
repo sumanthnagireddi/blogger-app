@@ -1,0 +1,85 @@
+p {
+    margin: 0px !important;
+}
+.comment_holder_container {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    .profile_icon {
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        overflow: hidden;
+        background-color: rgb(229 231 235);
+        border-radius: 9999px;
+
+        span {
+            position: absolute;
+            width: 3rem;
+            height: 3rem;
+            color: rgb(156 163 175);
+            left: 20%;
+            top: 20%;
+        }
+    }
+    .comment_content {
+        flex: 1 1 0%;
+        .username {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            color: rgb(31 41 55);
+        }
+        .date {
+            color: rgb(75 85 99);
+        }
+        .comment_body {
+            padding-top: 0.5rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: rgb(55 65 81);
+        }
+        .comment_menu {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            .reply_count {
+                display: flex;
+                cursor: pointer;
+                color: rgb(107 114 128);
+                align-items: center;
+                column-gap: 0.25rem;
+                .icon {
+                    font-size: 1.125rem;
+                    line-height: 1.75rem;
+                }
+                .count {
+                    font-size: 0.875rem;
+                    line-height: 1.25rem;
+                }
+            }
+            .reply_button {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                color: rgb(5 150 105);
+                cursor: pointer;
+                display: flex;
+                justify-content: flex-end;
+                max-width: 20rem;
+                font-weight: 500;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+    }
+}
+.nested {
+    margin-left: 2.5rem;
+    border-left-width: 2px;
+    padding-left: 0.5rem;
+}
+.show_replies {
+    @extend .nested;
+}

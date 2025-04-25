@@ -1,0 +1,18 @@
+<header class="container header">
+    <nav class="nav_header">
+        <div class="logo">
+            <p routerLink="/">Online Publishing Platform</p>
+        </div>
+        <div class="app-search"><app-search></app-search></div>
+        <span (click)="showMenu = !showMenu" class="material-symbols-outlined menu_icon">
+            menu
+        </span>
+        <div class="avatar_container" [routerLink]="['me','account']">
+            <span class="letters">{{this.username?.substring(0,2) | uppercase}}</span>
+        </div>
+
+    </nav>
+    <div *ngIf="showMenu"><div  class="mobile_sidebar">
+        <app-sidebar (clickEvent)="showMenu = !showMenu"/>
+    </div></div>
+</header>

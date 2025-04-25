@@ -1,0 +1,14 @@
+<div class="layout_container">
+    <app-navbar></app-navbar>
+    <div class="layout_content">
+        <div class="layout_sidebar_content">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="main_container">
+            <router-outlet />
+        </div>
+    </div>
+    <!-- <div *ngIf="loaderService.showLoader | async">
+      <app-loader />
+    </div> -->
+</div>

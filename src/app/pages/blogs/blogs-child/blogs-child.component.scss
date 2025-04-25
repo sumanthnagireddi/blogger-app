@@ -1,0 +1,27 @@
+.container{
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+}
+.page_header{
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: rgb(55 65 81);
+}
+.page_subheader{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgb(75 85 99);
+}
+
+.article-card-holder{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.article-card-container{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

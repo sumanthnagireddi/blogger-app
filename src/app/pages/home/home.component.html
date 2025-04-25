@@ -1,0 +1,44 @@
+<div>
+    <p class="user">{{greet()}} {{currentuser?.username}}</p>
+    <div class="adjust">
+        <span *ngIf="currentFeaturedBlog" style="font-weight: 500;color: rgb(55 65 81);margin-bottom: 1rem;font-size: 1rem;
+        line-height: 1.75rem;">Popular Articles</span>
+        <div class="featured_card_container">
+            <app-feature-card (refreshEvent)="getArticles()" [featuredData]="currentFeaturedBlog && currentFeaturedBlog" />
+            <div class="dots_container">
+                <div [ngClass]="item._id==currentFeaturedBlog?._id?'success_dot':'normal_dot '"
+                    *ngFor="let item of currentItems?.slice(0,3)" (click)="currentFeaturedBlog = item"
+                    class="dot"></div>
+            </div>
+        </div>
+        <div style="display: flex;justify-content: space-between;align-items: center;gap: 0.75rem;margin-top: 2rem;">
+            <p class="showing">Showing {{(currentPage - 1) * pageSize + 1 }} to {{ getToValue()}}
+                Articles of {{popular_blogs?.length}} </p>
+            <div style="display: flex;justify-content: flex-end;align-items: center;gap: 0.75rem;">
+                <div>
+                    <select (change)="filter()" [(ngModel)]="sort_criteria" name="HeadlineAct" id="HeadlineAct"
+                        class="select">
+                        <option value="most_recent" selected>Most Recent</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="popular">Popular</option>
+                    </select>
+                </div>
+                <div style="display: flex;justify-content: flex-end;align-items: center;gap: 0.75rem;">
+                    <span (click)="previousPage()" [class.disabled]="currentPage === 1"
+                        class="material-symbols-outlined nxt">
+                        chevron_left
+                    </span>
+                    <span>{{currentPage}}</span>
+                    <span (click)="nextPage()" [class.disabled]="currentPage >= totalPages"
+                        class="material-symbols-outlined nxt">
+                        chevron_right
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-card-holder" *ngFor="let blog of currentItems">
+            <app-article-card (refreshEvent)="getArticles()" [data]="blog" />
+        </div>
+    </div>
+</div>

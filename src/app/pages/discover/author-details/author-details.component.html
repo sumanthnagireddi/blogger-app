@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="header">
+        <p class="displayName">{{authorDetails?.username}} </p><a class="colored-button"
+            (click)="followUser()">{{this.isFollowing
+            ? 'Unfollow':'Follow'}}</a>
+    </div>
+    <span class="description">An Software professional with 2.8 years of experience , specializing inangular</span>
+    <small class="highlight">Member since {{authorDetails?.joinedOn | date}}.</small> &nbsp;
+    <small class="highlight">{{authorDetails?.followers?authorDetails?.followers?.length:0}}
+        Followers|{{authorDetails?.following?.length}} Following</small>
+    <div class="sub_container">
+        <app-tabs (activeTabEvent)="updateCurrentTab($event)"/>
+        <div class="content">
+            <div  *ngIf="currentTab() == 'Home'">
+                <div class="article-card-holder" *ngFor="let item of articles">
+                    <app-article-card [data]="item"></app-article-card>
+                </div>
+            </div>
+            <div  *ngIf="currentTab() == 'About'">
+                this is about
+            </div>
+            <div  *ngIf="currentTab() == 'Following'">
+                this is following
+            </div>
+        </div>
+    </div>
+</div>

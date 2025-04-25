@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    height: 50vh;
+    place-content: center;
+    background-color: rgb(255 255 255);
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    h1 {
+        text-transform: capitalize;
+        letter-spacing: 0.1em;
+        color: rgb(75 85 99);
+        font-size: 1rem;
+        line-height: 1.75rem;
+        font-weight: 500;
+    }
+}

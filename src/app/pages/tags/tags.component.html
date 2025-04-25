@@ -1,0 +1,17 @@
+<div style="display: flex;width: 100%;justify-content: center;margin-top: 0.25rem;">
+    <p style="font-size: 30px;font-weight: 500;text-transform: capitalize;">{{tag()}}</p>
+
+
+</div>
+<div class="articles">
+    <div class="article-card-holder" *ngFor="let blog of articles">
+        <app-article-card (refreshEvent)="getArticles()" [data]="blog" />
+
+    </div>
+    <div *ngIf="articles?.length == 0">
+        <app-no-data />
+    </div>
+    <!-- <div class="keywords_container"> -->
+        <!-- <span *ngFor="let item of tags?.slice(0,4)" class="keyword"
+                (click)="navigateToKeyword(item)">#{{item}}</span>
+    </div> -->

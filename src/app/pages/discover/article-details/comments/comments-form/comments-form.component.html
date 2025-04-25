@@ -1,0 +1,21 @@
+<div class="form_container">
+
+    <div *ngIf="showProfile()" class="profile_icon">
+        <span class="material-symbols-outlined">account_circle</span>
+    </div>
+    <div class="txtarea">
+        <label for="OrderNotes" class="sr-only">Comment</label>
+
+        <div class="textarea_container">
+            <textarea [(ngModel)]="comment" id="OrderNotes" rows="4" placeholder="What are your thoughts?"></textarea>
+            <div class="buttons">
+                <div (click)="comment = ''" type="button" class="normal-button">
+                    Clear
+                </div>
+                <div (click)="submitComment()" type="button" class="colored-button">
+                    Submit
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="comment_holder_container">
+    <div class="profile_icon">
+        <span class="material-symbols-outlined">account_circle</span>
+    </div>
+    <div class="comment_content">
+        <p class="username">{{comment()?.['username']}}</p>
+        <small class="date">{{comment()?.createdAt}}</small>
+        <p class="comment_body">
+            {{comment()?.['body']}}
+        </p>
+        <div class="comment_menu">
+            <div (click)="showReplies=!showReplies" class="reply_count">
+                <span class="material-symbols-outlined icon">
+                    mode_comment
+                </span>
+                <span class="count">{{(comment()?.children)?(comment()?.children?.length):0}} Replies</span>
+            </div>
+            <small (click)="handleReply(comment()?._id)" class="reply_button">Reply</small>
+        </div>
+    </div>
+</div>
+<div class="nested">
+    <app-comments-form (exportComment)="getFormData($event)" [isNestedComment]="true" [parentId]="replyingId"
+        [showProfile]="false" *ngIf="isReplying  && replyingId==comment()._id" />
+</div>
+<ng-container *ngIf="showReplies">
+    <div class="show_replies" *ngFor="let child of comment()?.children">
+        <app-comments-holder (exportCommentdata)="getFormData($event)" [comment]="child" />
+    </div>
+</ng-container>

@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="head">
+        <span class="material-symbols-outlined">
+            explore</span>
+        <span class="discover">Discover</span>
+    </div>
+    <span class="sub_header">Step into a new zone , join a new conversation</span>
+
+    <div class="search_holder">
+        <app-search [width]="700"></app-search>
+    </div>
+    <div class="keywords_container">
+        <span class="trend">Trending Keywords : <span *ngFor="let item of keyWords?.slice(0,4)"
+                class="keyword" (click)="navigateToKeyword(item)">#{{item}}</span></span>
+    </div>
+    <div *ngIf="currentItems?.length>0" class="readers">
+        <h3 class="heading">Reader's Choice</h3>
+        <div (click)="prevRow()" class="previousbtn">
+
+            <span class="material-symbols-outlined lefticon">
+                chevron_left
+            </span>
+        </div>
+        <div class="carousel_container">
+            <ng-container *ngFor="let card of currentItems">
+                <app-reader-card [data]="card"></app-reader-card>
+            </ng-container>
+        </div>
+        <div (click)="nextRow()" class="nextbtn">
+            <span class="material-symbols-outlined lefticon">
+                chevron_right
+            </span>
+        </div>
+    </div>
+    <div *ngIf="currentAuthors?.length>0" class="readers">
+        <h3 class="heading">Rising Authors</h3>
+        <div (click)="prevAuthorsRow()"  class="previousbtn">
+            <span class="material-symbols-outlined lefticon">
+                chevron_left
+            </span>
+        </div>
+        <div class="carousel_container">
+            <ng-container *ngFor="let card of currentAuthors">
+                <app-author-card [data]="card"></app-author-card>
+            </ng-container>
+        </div>
+        <div (click)="nextauthorsRow()" class="nextbtn">
+            <span class="material-symbols-outlined lefticon">
+                chevron_right
+            </span>
+        </div>
+    </div>
+</div>

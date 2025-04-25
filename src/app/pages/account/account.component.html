@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="header"><p class="displayName">{{myDetails?.username}}</p></div>
+    <span class="description">Dummy Description</span>
+    <small class="highlight">Member since {{myDetails?.joinedOn | date}}&nbsp;| </small>
+    <small class="highlight">{{myDetails?.followers?myDetails?.followers?.length:0}} Followers | {{myDetails?.following?.length}} Following</small>
+    <small class="highlight">&nbsp;| {{myDetails?.email}}</small> &nbsp;
+
+    <div class="sub_container">
+        <app-tabs (activeTabEvent)="updateCurrentTab($event)" />
+        <div class="content">
+            <div  *ngIf="currentTab() == 'Home'">
+                <div class="article-card-holder" *ngFor="let item of myArticles">
+                    <app-article-card [data]="item"></app-article-card>
+                </div>
+            </div>
+            <div  *ngIf="currentTab() == 'About'">
+                this is about
+            </div>
+            <div  *ngIf="currentTab() == 'Following'">
+                this is following
+            </div>
+        </div>
+    </div>
+</div>

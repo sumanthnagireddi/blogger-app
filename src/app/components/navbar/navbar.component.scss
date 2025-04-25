@@ -1,0 +1,66 @@
+@import "styles";
+
+.container {
+    background-color: $white;
+    // border: 1px;
+    border-bottom: 1px solid rgb(229 231 235);
+    // height: 6rem;
+}
+.mobile_sidebar {
+    display: none;
+    @media screen and (max-width: 650px) {
+        display: block;
+    }
+}
+.nav_header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 1rem;
+    @media screen and (max-width: 450px) {
+        display: flex;
+    }
+}
+.avatar_container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    overflow: hidden;
+    background-color: rgb(209 213 219);
+    border-radius: 9999px;
+    cursor: pointer;
+    .letters {
+        font-weight: 600;
+        color: rgb(75 85 99);
+    }
+    @media screen and (max-width: 650px) {
+        display: none;
+    }
+}
+.logo {
+    display: flex;
+    // flex: 1 1 0%;
+
+    p {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 600;
+        color: $emerald-700;
+    }
+}
+
+.menu_icon {
+    display: none;
+    @media screen and (max-width: 650px) {
+        display: block;
+    }
+}
+.app-search {
+    @media screen and (max-width: 650px) {
+        display: none;
+    }
+}

@@ -1,0 +1,35 @@
+@mixin colored-button($color: rgb(5 150 105), $background-color: rgb(167 243 208)) {
+    display: block;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: $background-color;
+    font-size: 0.875rem;
+    // text-align: center;
+    color: $color;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    // margin: 10px 0px;
+    // &:hover {
+    //     background-color: $background-color;
+    //     color: $color;
+    // }
+}
+.colored-button {
+    @include colored-button();
+    text-align: center;
+    // color: rgb(5 150 105);
+    &:hover {
+        background-color: rgb(110 231 183);
+        color: rgb(5 150 105);
+    }
+}
+.normal-button {
+    @include colored-button($color: rgb(75 85 99), $background-color: rgb(229 231 235));
+}
+
+.schedule-button {
+    @include colored-button($color: rgb(37 99 235), $background-color: rgb(191 219 254));
+}

@@ -1,0 +1,10 @@
+<div class="container">
+    <nav class="tab_container" aria-label="Tabs">
+        <a (click)="updateCurrentTab(tab)"
+            [ngClass]="currentTab() == tab? 'active_tab' :'inactive_tab'  "
+            *ngFor="let tab of tabNames"
+            class="tab ">
+            {{tab}}
+        </a>
+    </nav>
+</div>

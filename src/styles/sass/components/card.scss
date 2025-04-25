@@ -1,0 +1,27 @@
+.title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  color: rgb(17 24 39);
+  &:hover {
+    cursor: pointer;
+    color: rgb(5 150 105);
+  }
+}
+
+.description {
+  margin-top: -1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: rgb(107 114 128);
+}
+
+.keys_list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 10px;
+}

@@ -1,0 +1,57 @@
+<article id="article" class="container card">
+    <div class="">
+        <img alt="" [src]="featuredData()?.articlePhoto" class="image card" />
+    </div>
+    <div class="content">
+        <a (click)="navigate(featuredData()?._id)" class="title">
+            <h3>
+                {{featuredData()?.title}}
+            </h3>
+        </a>
+        <p class="description">
+            {{featuredData()?.description?.substring(0,190)}}
+            
+        </p>
+       
+    </div>
+    <div class="bottom-content">
+        <div class="left-content">
+            <p class="publishedDate">{{featuredData()?.published |date:'mediumDate' }}</p>
+            <p class="read-time">{{featuredData()?.readTime}} min read</p>
+            <div class="icon-container">
+                <span class="material-symbols-outlined icon">
+                    visibility
+                </span>
+                <span class="iconvalue">{{featuredData()?.views}}</span>
+            </div>
+            <div class="icon-container">
+                <span class="material-symbols-outlined icon">
+                    mode_comment
+                </span>
+                <span class="iconvalue">{{featuredData()?.comments ?featuredData()?.comments?.length:0}}</span>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="icon-container">
+                <span (click)="addTosave(featuredData()?._id)" class="material-symbols-outlined icon" *ngIf="!isSaved">
+                    bookmark
+                </span>
+                <span (click)="addTosave(featuredData()?._id)" class="icon savedArticle" *ngIf="isSaved">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px"
+                        fill="#119c8d">
+                        <path
+                            d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Z" />
+                    </svg>
+                </span>
+                <span class=" iconvalue">1.8K</span>
+            </div>
+            <div class="author-container">
+                <span class="material-symbols-outlined icon">
+                    account_circle
+                </span>
+                <p (click)="navigateToAuthorPage(featuredData()?.authorId)" class="autho-name ">{{featuredData()?.author}}</p>
+            </div>
+        </div>
+    </div>
+
+</article>
