@@ -64,7 +64,7 @@ export class OnlinePublishingService {
 
     const articleRequests = articleIds.map(id => this.getArticleById(category, id))
     return forkJoin(articleRequests)
-  }
+}
 
   // get single article based on id and category
   getArticleById(category: string, id: string): Observable<any[]> {

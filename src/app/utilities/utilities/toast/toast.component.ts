@@ -5,7 +5,7 @@ import { NgFor, NgIf, NgClass } from '@angular/common';
 @Component({
   selector: 'app-toast',
   standalone: true,
-  imports: [NgFor,NgIf,NgClass],
+  imports: [NgIf, NgClass],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })
@@ -19,6 +19,6 @@ export class ToastComponent {
     })
   }
   ngOnDestroy(): void {
-    
+
   }
 }

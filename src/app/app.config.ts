@@ -1,6 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
-
 import { routes } from './app.routes';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -14,11 +13,12 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { userReducer } from './store/userData.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { metaReducers, reducers } from './reducers';
 
 export function localStorageSyncReducer(reducer: any) {
   return localStorageSync({ keys: ['user'], rehydrate: true })(reducer);
 }
-const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+// const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -40,7 +40,7 @@ export const appConfig: ApplicationConfig = {
     UserTrackingService,
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
-    provideStore({ user: userReducer },{metaReducers}),
+    provideStore(reducers,{metaReducers}),
     provideAnimations(),
     provideQuillConfig({
       modules: {

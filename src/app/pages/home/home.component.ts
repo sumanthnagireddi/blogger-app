@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ArticleCardComponent, AuthorCardComponent, FormsModule, FeatureCardComponent, NoDataComponent, ReaderCardComponent, CommonModule],
+  imports: [ArticleCardComponent, FormsModule, FeatureCardComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -1,4 +1,4 @@
-import { Component, effect, EventEmitter, inject, input, Output } from '@angular/core';
+import { Component, effect, EventEmitter, inject, Input, input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { OnlinePublishingService } from '../../services/online-publishing.service';
